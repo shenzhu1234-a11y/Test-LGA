@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Leader'sGene</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,sans-serif}
+body{background:#fff;color:#222;line-height:1.7}
+.navbar{position:fixed;width:100%;background:#0A2463;color:#fff;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;z-index:999}
+.logo{height:50px;}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:#fff;text-decoration:none}
+.lang-btn{background:#D4AF37;color:#0A2463;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-weight:600}
+.hero{padding:130px 40px 70px;text-align:center;background:#f7f8fa}
+.hero h1{font-size:40px;color:#0A2463}
+.section{max-width:1000px;margin:0 auto;padding:50px 20px}
+.section h2{font-size:26px;color:#0A2463;margin-bottom:20px;border-left:4px solid #D4AF37;padding-left:12px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;margin-bottom:6px;color:#0A2463}
+.form-group input,.form-group textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:4px}
+.btn{background:#0A2463;color:#fff;border:none;padding:12px 24px;border-radius:4px;cursor:pointer}
+.footer{background:#0A2463;color:#fff;text-align:center;padding:30px}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <img src="https://i.imgur.com/your-logo-link.png" alt="Leader'sGene" class="logo">
+  <div class="nav-links">
+    <a href="index.html" lang-key="home">Home</a>
+    <a href="about.html" lang-key="about">About</a>
+    <a href="services.html" lang-key="services">Services</a>
+    <a href="tools.html" lang-key="tools">Tools</a>
+    <a href="contact.html" lang-key="contact">Contact</a>
+    <button class="lang-btn" id="langSwitch">中文</button>
+  </div>
+</div>
+
+<section class="hero">
+  <h1 lang-key="contactTitle">Contact Us</h1>
+</section>
+
+<section class="section">
+  <h2 lang-key="getInTouch">Get In Touch</h2>
+  <p lang-key="email">Email: contact@leadersgene.com</p>
+  <br>
+  <p lang-key="address">Location: Shanghai, China</p>
+  <br>
+  <form>
+    <div class="form-group">
+      <label lang-key="name">Name</label>
+      <input type="text" lang-key="namePlaceholder" placeholder="Your name">
+    </div>
+    <div class="form-group">
+      <label lang-key="company">Company</label>
+      <input type="text" lang-key="companyPlaceholder" placeholder="Your company">
+    </div>
+    <div class="form-group">
+      <label lang-key="emailLabel">Email</label>
+      <input type="email" lang-key="emailPlaceholder" placeholder="Your email">
+    </div>
+    <div class="form-group">
+      <label lang-key="message">Message</label>
+      <textarea rows="5" lang-key="messagePlaceholder" placeholder="Your message"></textarea>
+    </div>
+    <button class="btn" lang-key="submit">Submit</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <p lang-key="copyright">© 2026 Leader'sGene Consulting. All Rights Reserved.</p>
+  <p lang-key="contactInfo">Tel: +86-21-XXXXXXX | Email: contact@leadersgene.com | Address: Shanghai, China</p>
+</footer>
+
+<script>
+const i18n = {
+  en: {
+    home:"Home",about:"About",services:"Services",tools:"Tools",contact:"Contact",
+    contactTitle:"Contact Us",
+    getInTouch:"Get In Touch",
+    email:"Email: contact@leadersgene.com",
+    address:"Location: Shanghai, China",
+    name:"Name",namePlaceholder:"Your name",
+    company:"Company",companyPlaceholder:"Your company",
+    emailLabel:"Email",emailPlaceholder:"Your email",
+    message:"Message",messagePlaceholder:"Your message",
+    submit:"Submit",
+    copyright:"© 2026 Leader'sGene Consulting. All Rights Reserved.",
+    contactInfo:"Tel: +86-21-XXXXXXX | Email: contact@leadersgene.com | Address: Shanghai, China"
+  },
+  zh: {
+    home:"首页",about:"关于我们",services:"服务",tools:"工具模型",contact:"联系我们",
+    contactTitle:"联系我们",
+    getInTouch:"联系方式",
+    email:"邮箱：contact@leadersgene.com",
+    address:"地点：中国上海",
+    name:"姓名",namePlaceholder:"请输入您的姓名",
+    company:"公司",companyPlaceholder:"请输入您的公司",
+    emailLabel:"邮箱",emailPlaceholder:"请输入您的邮箱",
+    message:"留言",messagePlaceholder:"请输入您的留言",
+    submit:"提交",
+    copyright:"© 2026 励衿领导力咨询 保留所有权利。",
+    contactInfo:"电话：+86-21-XXXXXXX | 邮箱：contact@leadersgene.com | 地址：中国上海"
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+const btn = document.getElementById("langSwitch");
+
+function updateLang() {
+  document.querySelectorAll("[lang-key]").forEach(el => {
+    const key = el.getAttribute("lang-key");
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = i18n[currentLang][key];
+    } else {
+      el.textContent = i18n[currentLang][key];
+    }
+  });
+  btn.textContent = currentLang === "en" ? "中文" : "EN";
+  localStorage.setItem('lang', currentLang);
+  document.documentElement.lang = currentLang;
+}
+
+btn.addEventListener("click", () => {
+  currentLang = currentLang === "en" ? "zh" : "en";
+  updateLang();
+});
+
+updateLang();
+</script>
+</body>
+</html>
