@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - Leader'sGene</title>
+<title>Tools & Models - Leader'sGene</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,sans-serif}
 body{background:#fff;color:#222;line-height:1.7}
 .navbar{position:fixed;width:100%;background:#0A2463;color:#fff;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;z-index:999}
-.logo{/* 调整LOGO尺寸 - 匹配目标网站规范 */
-  height: 42px;
+.logo{
+  height: 40px;
   width: auto;
 }
 .nav-links{display:flex;gap:24px}
@@ -19,14 +19,15 @@ body{background:#fff;color:#222;line-height:1.7}
 .hero h1{font-size:40px;color:#0A2463}
 .section{max-width:1000px;margin:0 auto;padding:50px 20px}
 .section h2{font-size:26px;color:#0A2463;margin-bottom:20px;border-left:4px solid #D4AF37;padding-left:12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:#fff;padding:24px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
 .footer{background:#0A2463;color:#fff;text-align:center;padding:30px}
 </style>
 </head>
 <body>
 
 <div class="navbar">
-  <!-- 替换LOGO图片地址 -->
-  <img src="https://s41.ax1x.com/2026/03/16/peZixL4.png" alt="Leader'sGene" class="logo">
+  <img src="https://s41.ax1x.com/2026/03/16/peZ9RRU.png" alt="Leader'sGene" class="logo">
   <div class="nav-links">
     <a href="index.html" lang-key="home">Home</a>
     <a href="about.html" lang-key="about">About</a>
@@ -38,30 +39,28 @@ body{background:#fff;color:#222;line-height:1.7}
 </div>
 
 <section class="hero">
-  <h1 lang-key="aboutPageTitle">About Us</h1>
+  <h1 lang-key="toolsTitle">Tools & Models</h1>
 </section>
 
 <section class="section">
-  <h2 lang-key="whoWeAre">Who We Are</h2>
-  <p lang-key="whoWeAreDesc">
-    Leader'sGene was founded by senior executives with global consulting background. 
-    We integrate world-class leadership models with China’s business context to provide practical, professional solutions.
-  </p>
-  <br>
-  <p lang-key="whoWeAreDescCN" style="color:#555">
-    励衿由具备全球咨询背景的资深高管创立，融合国际顶级领导力模型与中国商业场景，提供务实、专业的解决方案。
-  </p>
-</section>
-
-<section class="section">
-  <h2 lang-key="ourMission">Our Mission</h2>
-  <p lang-key="ourMissionDesc">
-    Ignite leadership potential, build future-ready leaders, and empower sustainable organizational growth.
-  </p>
-  <br>
-  <p lang-key="ourMissionDescCN" style="color:#555">
-    激发领导潜能，塑造未来领袖，助力组织可持续发展。
-  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>VERA8™</h3>
+      <p lang-key="t1">36 Leadership Competencies Assessment</p>
+    </div>
+    <div class="card">
+      <h3>X7™ Potential Model</h3>
+      <p lang-key="t2">High Potential Talent Identification</p>
+    </div>
+    <div class="card">
+      <h3>D5™ Diagnostic</h3>
+      <p lang-key="t3">Team Diversity & Culture Measurement</p>
+    </div>
+    <div class="card">
+      <h3>Four-Leaf Clover Model</h3>
+      <p lang-key="t4">Integrated Leadership Framework</p>
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
@@ -73,25 +72,21 @@ body{background:#fff;color:#222;line-height:1.7}
 const i18n = {
   en: {
     home:"Home",about:"About",services:"Services",tools:"Tools",contact:"Contact",
-    aboutPageTitle:"About Us",
-    whoWeAre:"Who We Are",
-    whoWeAreDesc:"Leader'sGene was founded by senior executives with global consulting background. We integrate world-class leadership models with China’s business context to provide practical, professional solutions.",
-    whoWeAreDescCN:"",
-    ourMission:"Our Mission",
-    ourMissionDesc:"Ignite leadership potential, build future-ready leaders, and empower sustainable organizational growth.",
-    ourMissionDescCN:"",
+    toolsTitle:"Tools & Models",
+    t1:"36 Leadership Competencies Assessment",
+    t2:"High Potential Talent Identification",
+    t3:"Team Diversity & Culture Measurement",
+    t4:"Integrated Leadership Framework",
     copyright:"© 2026 Leader'sGene Consulting. All Rights Reserved.",
     contactInfo:"Tel: +86-21-XXXXXXX | Email: contact@leadersgene.com | Address: Shanghai, China"
   },
   zh: {
     home:"首页",about:"关于我们",services:"服务",tools:"工具模型",contact:"联系我们",
-    aboutPageTitle:"关于我们",
-    whoWeAre:"我们是谁",
-    whoWeAreDesc:"励衿由具备全球咨询背景的资深高管创立，融合国际顶级领导力模型与中国商业场景，提供务实、专业的解决方案。",
-    whoWeAreDescCN:"",
-    ourMission:"我们的使命",
-    ourMissionDesc:"激发领导潜能，塑造未来领袖，助力组织可持续发展。",
-    ourMissionDescCN:"",
+    toolsTitle:"工具与模型",
+    t1:"36项领导力胜任力测评",
+    t2:"高潜人才识别模型",
+    t3:"团队多元与文化诊断",
+    t4:"整合式领导力框架",
     copyright:"© 2026 励衿领导力咨询 保留所有权利。",
     contactInfo:"电话：+86-21-XXXXXXX | 邮箱：contact@leadersgene.com | 地址：中国上海"
   }
