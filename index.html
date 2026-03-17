@@ -23,6 +23,7 @@
             background-position: center;
             background-attachment: fixed; /* 背景固定 */
             position: relative;
+            transition: background-image 0.8s ease; /* 平滑切换 */
         }
 
         /* 背景白色蒙版（40%透明度） */
@@ -730,6 +731,29 @@
         });
 
         updateLanguage(currentLang);
+
+        // ============== 新增：滚动背景图自动切换 ==============
+        let currentBg = 1;
+        const bg1 = "url('https://s41.ax1x.com/2026/03/17/peZ8XL9.jpg')";
+        const bg2 = "url('https://s41.ax1x.com/2026/03/17/peZ7ZxP.jpg')";
+        const aboutWrapper = document.querySelector('.about-wrapper');
+
+        function switchBackground() {
+            const rect = aboutWrapper.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.bottom <= windowHeight && currentBg === 1) {
+                document.body.style.backgroundImage = bg2;
+                currentBg = 2;
+            }
+            if (rect.top >= windowHeight && currentBg === 2) {
+                document.body.style.backgroundImage = bg1;
+                currentBg = 1;
+            }
+        }
+
+        window.addEventListener('scroll', switchBackground);
+        switchBackground();
     </script>
 </body>
 </html>
