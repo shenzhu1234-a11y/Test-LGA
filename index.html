@@ -17,13 +17,12 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
             color: #333;
-            /* 初始全局背景图片 */
+            /* 添加全局背景图片 */
             background-image: url(https://s41.ax1x.com/2026/03/17/peZ8XL9.jpg);
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: fixed; /* 背景固定 */
             position: relative;
-            transition: background-image 0.8s ease;
         }
 
         /* 背景白色蒙版（40%透明度） */
@@ -36,7 +35,7 @@
             height: 100%;
             background-color: #ffffff;
             opacity: 0.40;
-            z-index: -1;
+            z-index: -1; /* 蒙版置于内容下方 */
         }
 
         /* 导航栏（固定顶部+双语切换） */
@@ -50,7 +49,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 999;
+            z-index: 999; /* 确保导航栏在最上层 */
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
@@ -142,6 +141,7 @@
             padding: 90px 5%;
             max-width: 1200px;
             margin: 0 auto;
+            /* 确保板块内容在蒙版上方 */
             position: relative;
             z-index: 1;
         }
@@ -154,29 +154,12 @@
             padding-left: 18px;
         }
 
-        /* 关于我们 - 新增纯白色包裹背景 */
-        #about {
-            position: relative;
-            padding-top: 0;
-            padding-bottom: 0;
-            margin: 80px auto;
-        }
-        #about::before {
-            content: "";
-            position: absolute;
-            top: -40px;
-            left: 0;
-            width: 100%;
-            height: calc(100% + 80px);
-            background: #ffffff;
-            z-index: -1;
-        }
+        /* 关于我们板块 */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* 改为单列布局 */
             gap: 40px;
             align-items: flex-start;
-            padding: 90px 0;
         }
 
         .about-text p {
@@ -188,7 +171,7 @@
 
         .about-advantages {
             list-style: none;
-            margin-top: 20px;
+            margin-top: 20px; /* 增加与上方文本的间距 */
         }
 
         .about-advantages li {
@@ -207,13 +190,13 @@
             top: -2px;
         }
 
-        /* 服务方案板块 */
+        /* 服务方案板块 - 调整为两行两列居中布局 */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr); /* 固定两列 */
             gap: 30px;
             margin-top: 10px;
-            max-width: 900px;
+            max-width: 900px; /* 限制最大宽度实现居中 */
             margin-left: auto;
             margin-right: auto;
         }
@@ -243,7 +226,7 @@
             color: #444;
         }
 
-        /* 客户案例板块 */
+        /* 客户案例板块（与服务方案样式完全统一） */
         .cases-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -358,6 +341,7 @@
             .nav-menu {
                 gap: 20px;
             }
+            /* 服务板块移动端改为单列 */
             .services-grid, .cases-grid {
                 grid-template-columns: 1fr;
             }
@@ -388,7 +372,7 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏：已新增 客户案例 -->
     <nav class="navbar">
         <img src="https://s41.ax1x.com/2026/03/17/peZcIGF.png" alt="LeadersGene Logo" class="logo">
         <div class="nav-menu">
@@ -427,6 +411,7 @@
                     已服务超过100家行业头部企业，覆盖医疗、消费、制造、科技等多个领域。
                 </p>
             </div>
+            <!-- 核心优势移至关于我们文本下方 -->
             <div class="about-advantages">
                 <h3 class="section-title" style="font-size:22px; margin-bottom:20px;" data-lang="about-adv-title">核心优势</h3>
                 <li data-lang="about-adv1">国际顶级测评工具与本土化适配</li>
@@ -442,6 +427,7 @@
     <section class="section" id="services">
         <h2 class="section-title" data-lang="services-title">服务方案</h2>
         <div class="services-grid">
+            <!-- 服务1：领导力评估（第一行第一列） -->
             <div class="service-card">
                 <h3 class="service-title" data-lang="service1-title">领导力评估</h3>
                 <p class="service-desc" data-lang="service1-desc">
@@ -449,6 +435,7 @@
                     输出专业评估报告，为人才选拔、晋升与发展提供数据支撑。
                 </p>
             </div>
+            <!-- 服务2：领导力发展项目（第一行第二列） -->
             <div class="service-card">
                 <h3 class="service-title" data-lang="service2-title">领导力发展项目</h3>
                 <p class="service-desc" data-lang="service2-desc">
@@ -456,6 +443,7 @@
                     通过课程、行动学习、辅导结合，实现领导力能力落地转化。
                 </p>
             </div>
+            <!-- 服务3：高管教练（第二行第一列） -->
             <div class="service-card">
                 <h3 class="service-title" data-lang="service3-title">高管教练</h3>
                 <p class="service-desc" data-lang="service3-desc">
@@ -463,6 +451,7 @@
                     帮助管理者突破瓶颈，实现个人与组织绩效双重提升。
                 </p>
             </div>
+            <!-- 服务4：团队效能提升（第二行第二列） -->
             <div class="service-card">
                 <h3 class="service-title" data-lang="service4-title">团队效能提升</h3>
                 <p class="service-desc" data-lang="service4-desc">
@@ -543,23 +532,7 @@
             heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
         });
 
-        // 2. 滚动切换背景图功能
-        let bgSwitched = false;
-        const aboutSection = document.getElementById('about');
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', () => {
-            const navbarHeight = navbar.offsetHeight;
-            const aboutTop = aboutSection.getBoundingClientRect().top + window.pageYOffset;
-            const triggerPoint = aboutTop - navbarHeight;
-            
-            if (window.pageYOffset >= triggerPoint && !bgSwitched) {
-                document.body.style.backgroundImage = 'url(https://s41.ax1x.com/2026/03/17/peZ7ZxP.jpg)';
-                bgSwitched = true;
-            }
-        });
-
-        // 3. 双语切换功能
+        // 2. 双语切换功能
         const langSwitch = document.getElementById('langSwitch');
         let currentLang = 'zh';
 
