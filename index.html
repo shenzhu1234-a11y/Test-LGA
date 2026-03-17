@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadersGene 励衿领导力 - 全球领导力咨询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            color: #333;
+        }
+
+        /* 导航栏（清单要求：固定顶部+双语切换） */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 50, 0.95);
+            color: #fff;
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            height: 38px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #d4a742;
+        }
+
+        .lang-switch {
+            background: #d4a742;
+            color: #0a1932;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .lang-switch:hover {
+            background: #e6c862;
+        }
+
+        /* 首页英雄区（清单要求：全屏背景+文字蒙版+视差滚动） */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 130%;
+            background-image: url(<a href="https://imgchr.com/i/peZ8XL9"><img src="https://s41.ax1x.com/2026/03/17/peZ8XL9.jpg" alt="peZ8XL9.jpg" border="0" /></a>); /* imgchr图床 */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: transform 0.2s ease-out;
+        }
+
+        .hero-mask {
+            background: rgba(10, 25, 50, 0.75);
+            padding: 65px 85px;
+            border-radius: 8px;
+            text-align: center;
+            color: #fff;
+            max-width: 900px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-title {
+            font-size: 44px;
+            margin-bottom: 22px;
+            line-height: 1.3;
+        }
+
+        .hero-desc {
+            font-size: 19px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* 通用板块样式（清单统一要求） */
+        .section {
+            padding: 90px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 30px;
+            color: #0a1932;
+            margin-bottom: 35px;
+            border-left: 4px solid #d4a742;
+            padding-left: 18px;
+        }
+
+        /* 关于我们板块（清单要求：公司简介+核心优势） */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            line-height: 2.0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-advantages {
+            list-style: none;
+        }
+
+        .about-advantages li {
+            font-size: 17px;
+            line-height: 2.2;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .about-advantages li::before {
+            content: "•";
+            color: #d4a742;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* 服务方案板块（清单要求：4大服务+卡片式布局） */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .service-title {
+            font-size: 22px;
+            color: #0a1932;
+            margin-bottom: 18px;
+        }
+
+        .service-desc {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        /* 联系我们板块（清单要求：联系方式+表单占位） */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .contact-info-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-info-label {
+            font-size: 18px;
+            color: #0a1932;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .contact-info-value {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .contact-form-placeholder {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .contact-form-text {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 页脚（清单要求：版权+基础信息） */
+        .footer {
+            background: #0a1932;
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 15px;
+            margin-top: 30px;
+        }
+
+        .footer-copyright {
+            margin-bottom: 15px;
+        }
+
+        .footer-info {
+            opacity: 0.8;
+        }
+
+        /* 移动端响应式（清单要求：适配手机/平板） */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* 移动端隐藏导航，可后续加汉堡菜单 */
+            }
+            .hero-mask {
+                padding: 40px 25px;
+                margin: 0 20px;
+            }
+            .hero-title {
+                font-size: 30px;
+            }
+            .hero-desc {
+                font-size: 17px;
+            }
+            .section {
+                padding: 60px 5%;
+            }
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 25px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <img src="<a href="https://imgchr.com/i/peZyNzd"><img src="https://s41.ax1x.com/2026/03/17/peZyNzd.png" alt="peZyNzd.png" border="0" /></a>" alt="LeadersGene Logo" class="logo">
+        <div class="nav-menu">
+            <a href="#hero" class="nav-link" data-lang="nav-home">首页</a>
+            <a href="#about" class="nav-link" data-lang="nav-about">关于我们</a>
+            <a href="#services" class="nav-link" data-lang="nav-services">服务方案</a>
+            <a href="#contact" class="nav-link" data-lang="nav-contact">联系我们</a>
+            <button class="lang-switch" id="langSwitch">EN</button>
+        </div>
+    </nav>
+
+    <!-- 首页英雄区 -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-mask">
+            <h1 class="hero-title" data-lang="hero-title">全球领导力咨询 · 专注中国企业</h1>
+            <p class="hero-desc" data-lang="hero-desc">
+                LeadersGene 励衿领导力致力于为高管、团队与组织提供专业的领导力评估、发展与教练服务，
+                用全球视野与本土实践，助力企业打造持续成长的核心力量。
+            </p>
+        </div>
+    </section>
+
+    <!-- 关于我们板块 -->
+    <section class="section" id="about">
+        <h2 class="section-title" data-lang="about-title">关于我们</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p data-lang="about-desc1">
+                    励衿领导力（LeadersGene）是国内领先的高管领导力咨询机构，核心团队均来自国际顶级人力资源与咨询公司，
+                    平均拥有15年以上跨国企业与本土龙头企业服务经验，深度理解中国企业的领导力发展痛点与需求。
+                </p>
+                <p data-lang="about-desc2">
+                    我们始终秉持“全球框架+本土洞察”的服务理念，为客户提供可落地、可衡量的领导力解决方案，
+                    已服务超过100家行业头部企业，覆盖医疗、消费、制造、科技等多个领域。
+                </p>
+            </div>
+            <div class="about-advantages">
+                <h3 class="section-title" style="font-size:22px; margin-bottom:20px;" data-lang="about-adv-title">核心优势</h3>
+                <li data-lang="about-adv1">国际顶级测评工具与本土化适配</li>
+                <li data-lang="about-adv2">100+跨国企业与本土龙头服务经验</li>
+                <li data-lang="about-adv3">全流程项目管理与效果追踪</li>
+                <li data-lang="about-adv4">一对一高管教练团队（平均12年+经验）</li>
+                <li data-lang="about-adv5">定制化解决方案，拒绝标准化产品</li>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务方案板块 -->
+    <section class="section" id="services">
+        <h2 class="section-title" data-lang="services-title">服务方案</h2>
+        <div class="services-grid">
+            <!-- 服务1：领导力评估 -->
+            <div class="service-card">
+                <h3 class="service-title" data-lang="service1-title">领导力评估</h3>
+                <p class="service-desc" data-lang="service1-desc">
+                    结合国际标准评估中心（AC）与本土化工具，多维度识别领导者优势与发展机会，
+                    输出专业评估报告，为人才选拔、晋升与发展提供数据支撑。
+                </p>
+            </div>
+            <!-- 服务2：领导力发展项目 -->
+            <div class="service-card">
+                <h3 class="service-title" data-lang="service2-title">领导力发展项目</h3>
+                <p class="service-desc" data-lang="service2-desc">
+                    基于70-20-10学习原则，定制高管、中层与后备梯队发展项目，
+                    通过课程、行动学习、辅导结合，实现领导力能力落地转化。
+                </p>
+            </div>
+            <!-- 服务3：高管教练 -->
+            <div class="service-card">
+                <h3 class="service-title" data-lang="service3-title">高管教练</h3>
+                <p class="service-desc" data-lang="service3-desc">
+                    一对一专业高管教练服务，聚焦战略落地、团队管理、职业转型等核心议题，
+                    帮助管理者突破瓶颈，实现个人与组织绩效双重提升。
+                </p>
+            </div>
+            <!-- 服务4：团队效能提升 -->
+            <div class="service-card">
+                <h3 class="service-title" data-lang="service4-title">团队效能提升</h3>
+                <p class="service-desc" data-lang="service4-desc">
+                    通过团队诊断、目标对齐、沟通模式优化等方式，
+                    提升高管团队协作效率与决策质量，打造高绩效团队文化。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们板块 -->
+    <section class="section" id="contact">
+        <h2 class="section-title" data-lang="contact-title">联系我们</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <div class="contact-info-label" data-lang="contact-label1">公司地址</div>
+                    <div class="contact-info-value" data-lang="contact-value1">上海市黄浦区淮海中路333号瑞安广场1110室</div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-label" data-lang="contact-label2">联系电话</div>
+                    <div class="contact-info-value" data-lang="contact-value2">+86-21-5888 6666</div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-label" data-lang="contact-label3">官方邮箱</div>
+                    <div class="contact-info-value" data-lang="contact-value3">contact@leadersgene.com</div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-info-label" data-lang="contact-label4">微信公众号</div>
+                    <div class="contact-info-value" data-lang="contact-value4">LeadersGene励衿领导力</div>
+                </div>
+            </div>
+            <div class="contact-form-placeholder">
+                <div class="contact-form-text" data-lang="contact-form-text">
+                    如需咨询服务或获取资料，<br>
+                    请致电或发送邮件与我们联系，<br>
+                    我们将在1个工作日内回复您。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-copyright" data-lang="footer-copyright">© 2026 LeadersGene 励衿领导力咨询 保留所有权利</div>
+        <div class="footer-info" data-lang="footer-info">沪ICP备XXXXXXXX号 | 上海市黄浦区淮海中路333号瑞安广场1110室</div>
+    </footer>
+
+    <script>
+        // 1. 视差滚动效果（清单要求）
+        const heroBg = document.querySelector('.hero-bg');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
+        });
+
+        // 2. 双语切换功能（清单要求：中英双语）
+        const langSwitch = document.getElementById('langSwitch');
+        let currentLang = 'zh'; // 默认中文
+
+        // 双语内容配置
+        const langContent = {
+            zh: {
+                'nav-home': '首页',
+                'nav-about': '关于我们',
+                'nav-services': '服务方案',
+                'nav-contact': '联系我们',
+                'hero-title': '全球领导力咨询 · 专注中国企业',
+                'hero-desc': 'LeadersGene 励衿领导力致力于为高管、团队与组织提供专业的领导力评估、发展与教练服务，用全球视野与本土实践，助力企业打造持续成长的核心力量。',
+                'about-title': '关于我们',
+                'about-desc1': '励衿领导力（LeadersGene）是国内领先的高管领导力咨询机构，核心团队均来自国际顶级人力资源与咨询公司，平均拥有15年以上跨国企业与本土龙头企业服务经验，深度理解中国企业的领导力发展痛点与需求。',
+                'about-desc2': '我们始终秉持“全球框架+本土洞察”的服务理念，为客户提供可落地、可衡量的领导力解决方案，已服务超过100家行业头部企业，覆盖医疗、消费、制造、科技等多个领域。',
+                'about-adv-title': '核心优势',
+                'about-adv1': '国际顶级测评工具与本土化适配',
+                'about-adv2': '100+跨国企业与本土龙头服务经验',
+                'about-adv3': '全流程项目管理与效果追踪',
+                'about-adv4': '一对一高管教练团队（平均12年+经验）',
+                'about-adv5': '定制化解决方案，拒绝标准化产品',
+                'services-title': '服务方案',
+                'service1-title': '领导力评估',
+                'service1-desc': '结合国际标准评估中心（AC）与本土化工具，多维度识别领导者优势与发展机会，输出专业评估报告，为人才选拔、晋升与发展提供数据支撑。',
+                'service2-title': '领导力发展项目',
+                'service2-desc': '基于70-20-10学习原则，定制高管、中层与后备梯队发展项目，通过课程、行动学习、辅导结合，实现领导力能力落地转化。',
+                'service3-title': '高管教练',
+                'service3-desc': '一对一专业高管教练服务，聚焦战略落地、团队管理、职业转型等核心议题，帮助管理者突破瓶颈，实现个人与组织绩效双重提升。',
+                'service4-title': '团队效能提升',
+                'service4-desc': '通过团队诊断、目标对齐、沟通模式优化等方式，提升高管团队协作效率与决策质量，打造高绩效团队文化。',
+                'contact-title': '联系我们',
+                'contact-label1': '公司地址',
+                'contact-value1': '上海市黄浦区淮海中路333号瑞安广场1110室',
+                'contact-label2': '联系电话',
+                'contact-value2': '+86-21-5888 6666',
+                'contact-label3': '官方邮箱',
+                'contact-value3': 'contact@leadersgene.com',
+                'contact-label4': '微信公众号',
+                'contact-value4': 'LeadersGene励衿领导力',
+                'contact-form-text': '如需咨询服务或获取资料，请致电或发送邮件与我们联系，我们将在1个工作日内回复您。',
+                'footer-copyright': '© 2026 LeadersGene 励衿领导力咨询 保留所有权利',
+                'footer-info': '沪ICP备XXXXXXXX号 | 上海市黄浦区淮海中路333号瑞安广场1110室'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-about': 'About Us',
+                'nav-services': 'Solutions',
+                'nav-contact': 'Contact',
+                'hero-title': 'Global Leadership Advisory · Focus on Chinese Enterprises',
+                'hero-desc': 'LeadersGene is committed to providing professional leadership assessment, development and coaching services for executives, teams and organizations. With global perspective and local practice, we help enterprises build core strength for sustainable growth.',
+                'about-title': 'About Us',
+                'about-desc1': 'LeadersGene is a leading executive leadership consulting firm in China. Our core team members are from top international human resources and consulting companies, with an average of over 15 years of experience serving multinational and local leading enterprises, and a deep understanding of the pain points and needs of Chinese enterprises in leadership development.',
+                'about-desc2': 'We always adhere to the service concept of "Global Framework + Local Insight" to provide customers with implementable and measurable leadership solutions. We have served more than 100 industry-leading enterprises covering healthcare, consumer goods, manufacturing, technology and other fields.',
+                'about-adv-title': 'Core Advantages',
+                'about-adv1': 'International top assessment tools and localized adaptation',
+                'about-adv2': 'Service experience for 100+ multinational and local leading enterprises',
+                'about-adv3': 'Full-process project management and effect tracking',
+                'about-adv4': 'One-on-one executive coaching team (average 12+ years of experience)',
+                'about-adv5': 'Customized solutions, no standardized products',
+                'services-title': 'Solutions',
+                'service1-title': 'Leadership Assessment',
+                'service1-desc': 'Combining international standard Assessment Center (AC) and localized tools, we identify leaders\' strengths and development opportunities from multiple dimensions, and output professional assessment reports to provide data support for talent selection, promotion and development.',
+                'service2-title': 'Leadership Development Program',
+                'service2-desc': 'Based on the 70-20-10 learning principle, we customize executive, middle management and reserve echelon development programs, combining courses, action learning and coaching to achieve the transformation of leadership capabilities.',
+                'service3-title': 'Executive Coaching',
+                'service3-desc': 'One-on-one professional executive coaching services, focusing on core issues such as strategy implementation, team management and career transition, helping managers break through bottlenecks and achieve dual improvement of personal and organizational performance.',
+                'service4-title': 'Team Effectiveness Improvement',
+                'service4-desc': 'Through team diagnosis, goal alignment and communication mode optimization, we improve the collaboration efficiency and decision-making quality of executive teams, and build a high-performance team culture.',
+                'contact-title': 'Contact Us',
+                'contact-label1': 'Company Address',
+                'contact-value1': 'x',
+                'contact-label2': 'Phone',
+                'contact-value2': '+86-21-5888 6666',
+                'contact-label3': 'Email',
+                'contact-value3': 'contact@leadersgene.com',
+                'contact-label4': 'WeChat Official Account',
+                'contact-value4': 'LeadersGene',
+                'contact-form-text': 'For service consultation or information request, please call or send an email to contact us. We will reply to you within 1 working day.',
+                'footer-copyright': '© 2026 LeadersGene Consulting. All Rights Reserved.',
+                'footer-info': 'Shanghai ICP No. XXXXXXXX | Room 1110, Shui On Plaza, 333 Huai Hai Road, Shanghai, P.R.C.'
+            }
+        };
+
+        // 切换语言函数
+        function updateLanguage(lang) {
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                el.textContent = langContent[lang][key];
+            });
+            langSwitch.textContent = lang === 'zh' ? 'EN' : '中文';
+            currentLang = lang;
+            document.documentElement.lang = lang;
+        }
+
+        // 语言切换按钮事件
+        langSwitch.addEventListener('click', () => {
+            const targetLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateLanguage(targetLang);
+        });
+
+        // 初始化语言
+        updateLanguage(currentLang);
+    </script>
+</body>
+</html>
