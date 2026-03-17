@@ -179,6 +179,37 @@
             color: #333;
         }
 
+        /* 创始人版块样式 */
+        .founder-section {
+            margin: 40px 0;
+        }
+        .founder-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .founder-img {
+            width: 180px;
+            height: auto;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        .founder-desc {
+            flex: 1;
+            font-size: 17px;
+            line-height: 2.0;
+            color: #333;
+        }
+        .consultants-link {
+            text-align: right;
+            font-size: 17px;
+            color: #000000;
+            font-style: italic;
+            line-height: 2.0;
+            margin-top: 20px;
+        }
+
         .about-advantages {
             list-style: none;
             margin-top: 20px; /* 增加与上方文本的间距 */
@@ -382,6 +413,14 @@
             .about-wrapper {
                 padding: 30px 0;
             }
+            .founder-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            .founder-img {
+                width: 150px;
+            }
         }
     </style>
 </head>
@@ -427,6 +466,21 @@
                         已服务超过100家行业头部企业，覆盖医疗、消费、制造、科技等多个领域。
                     </p>
                 </div>
+
+                <!-- 新增：创始人简介版块 -->
+                <div class="founder-section">
+                    <h3 class="section-title" style="font-size:22px; margin-bottom:20px;" data-lang="founder-title">创始人</h3>
+                    <div class="founder-item">
+                        <img src="https://s41.ax1x.com/2026/03/17/peZboKP.jpg" alt="创始人" class="founder-img">
+                        <div class="founder-desc" data-lang="founder-desc1">创始人简介xxxxxxxxxxxxxxxxxxx</div>
+                    </div>
+                    <div class="founder-item">
+                        <img src="https://s41.ax1x.com/2026/03/17/peZbTDf.png" alt="联合创始人" class="founder-img">
+                        <div class="founder-desc" data-lang="founder-desc2">创始人简介xxxxxxxxxxxxxxxxxxx</div>
+                    </div>
+                    <div class="consultants-link" data-lang="consultants">认识我们的顾问</div>
+                </div>
+
                 <!-- 核心优势移至关于我们文本下方 -->
                 <div class="about-advantages">
                     <h3 class="section-title" style="font-size:22px; margin-bottom:20px;" data-lang="about-adv-title">核心优势</h3>
@@ -565,6 +619,10 @@
                 'about-title': '关于我们',
                 'about-desc1': '励衿领导力（LeadersGene）是国内领先的高管领导力咨询机构，核心团队均来自国际顶级人力资源与咨询公司，平均拥有15年以上跨国企业与本土龙头企业服务经验，深度理解中国企业的领导力发展痛点与需求。',
                 'about-desc2': '我们始终秉持“全球框架+本土洞察”的服务理念，为客户提供可落地、可衡量的领导力解决方案，已服务超过100家行业头部企业，覆盖医疗、消费、制造、科技等多个领域。',
+                'founder-title': '创始人',
+                'founder-desc1': '创始人简介xxxxxxxxxxxxxxxxxxx',
+                'founder-desc2': '创始人简介xxxxxxxxxxxxxxxxxxx',
+                'consultants': '认识我们的顾问',
                 'about-adv-title': '核心优势',
                 'about-adv1': '国际顶级测评工具与本土化适配',
                 'about-adv2': '100+跨国企业与本土龙头服务经验',
@@ -613,6 +671,10 @@
                 'about-title': 'About Us',
                 'about-desc1': 'LeadersGene is a leading executive leadership consulting firm in China. Our core team members are from top international human resources and consulting companies, with an average of over 15 years of experience serving multinational and local leading enterprises, and a deep understanding of the pain points and needs of Chinese enterprises in leadership development.',
                 'about-desc2': 'We always adhere to the service concept of "Global Framework + Local Insight" to provide customers with implementable and measurable leadership solutions. We have served more than 100 industry-leading enterprises covering healthcare, consumer goods, manufacturing, technology and other fields.',
+                'founder-title': 'Founder',
+                'founder-desc1': 'The founder who........................................',
+                'founder-desc2': 'The founder who........................................',
+                'consultants': 'Get to know our consultants',
                 'about-adv-title': 'Core Advantages',
                 'about-adv1': 'International top assessment tools and localized adaptation',
                 'about-adv2': 'Service experience for 100+ multinational and local leading enterprises',
