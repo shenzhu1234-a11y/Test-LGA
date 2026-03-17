@@ -19,12 +19,12 @@
             color: #333;
         }
 
-        /* 导航栏（清单要求：固定顶部+双语切换） */
+        /* 导航栏（固定顶部+双语切换） */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 25, 50, 0.95);
+            background: rgba(1, 62, 117, 0.95);
             color: #fff;
             padding: 14px 5%;
             display: flex;
@@ -35,7 +35,8 @@
         }
 
         .logo {
-            height: 38px;
+            height: 32px;
+            width: auto;
         }
 
         .nav-menu {
@@ -57,7 +58,7 @@
 
         .lang-switch {
             background: #d4a742;
-            color: #0a1932;
+            color: #013E75;
             border: none;
             padding: 7px 14px;
             border-radius: 4px;
@@ -70,7 +71,7 @@
             background: #e6c862;
         }
 
-        /* 首页英雄区（清单要求：全屏背景+文字蒙版+视差滚动） */
+        /* 首页英雄区：全屏背景+文字蒙版+视差滚动 */
         .hero {
             position: relative;
             width: 100%;
@@ -87,7 +88,7 @@
             left: 0;
             width: 100%;
             height: 130%;
-            background-image: url(<a href="https://imgchr.com/i/peZ8XL9"><img src="https://s41.ax1x.com/2026/03/17/peZ8XL9.jpg" alt="peZ8XL9.jpg" border="0" /></a>); /* imgchr图床 */
+            background-image: url(https://imgchr.com/i/K810yZ9);
             background-size: cover;
             background-position: center;
             z-index: -1;
@@ -95,7 +96,7 @@
         }
 
         .hero-mask {
-            background: rgba(10, 25, 50, 0.75);
+            background: rgba(1, 62, 117, 0.75);
             padding: 65px 85px;
             border-radius: 8px;
             text-align: center;
@@ -116,7 +117,7 @@
             opacity: 0.95;
         }
 
-        /* 通用板块样式（清单统一要求） */
+        /* 通用板块样式 */
         .section {
             padding: 90px 5%;
             max-width: 1200px;
@@ -125,13 +126,13 @@
 
         .section-title {
             font-size: 30px;
-            color: #0a1932;
+            color: #013E75;
             margin-bottom: 35px;
             border-left: 4px solid #d4a742;
             padding-left: 18px;
         }
 
-        /* 关于我们板块（清单要求：公司简介+核心优势） */
+        /* 关于我们板块 */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -166,7 +167,7 @@
             top: -2px;
         }
 
-        /* 服务方案板块（清单要求：4大服务+卡片式布局） */
+        /* 服务方案板块 */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -189,7 +190,7 @@
 
         .service-title {
             font-size: 22px;
-            color: #0a1932;
+            color: #013E75;
             margin-bottom: 18px;
         }
 
@@ -199,7 +200,7 @@
             color: #444;
         }
 
-        /* 联系我们板块（清单要求：联系方式+表单占位） */
+        /* 联系我们板块 */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -218,7 +219,7 @@
 
         .contact-info-label {
             font-size: 18px;
-            color: #0a1932;
+            color: #013E75;
             font-weight: 600;
             margin-bottom: 8px;
         }
@@ -245,9 +246,9 @@
             line-height: 1.8;
         }
 
-        /* 页脚（清单要求：版权+基础信息） */
+        /* 页脚 */
         .footer {
-            background: #0a1932;
+            background: #013E75;
             color: #fff;
             text-align: center;
             padding: 50px 20px;
@@ -263,7 +264,7 @@
             opacity: 0.8;
         }
 
-        /* 移动端响应式（清单要求：适配手机/平板） */
+        /* 移动端响应式 */
         @media (max-width: 992px) {
             .about-content, .contact-container {
                 grid-template-columns: 1fr;
@@ -275,7 +276,7 @@
 
         @media (max-width: 768px) {
             .nav-menu {
-                display: none; /* 移动端隐藏导航，可后续加汉堡菜单 */
+                display: none;
             }
             .hero-mask {
                 padding: 40px 25px;
@@ -303,7 +304,7 @@
 <body>
     <!-- 导航栏 -->
     <nav class="navbar">
-        <img src="<a href="https://imgchr.com/i/peZyNzd"><img src="https://s41.ax1x.com/2026/03/17/peZyNzd.png" alt="peZyNzd.png" border="0" /></a>" alt="LeadersGene Logo" class="logo">
+        <img src="https://s41.ax1x.com/2026/03/17/peZcIGF.png" alt="LeadersGene Logo" class="logo">
         <div class="nav-menu">
             <a href="#hero" class="nav-link" data-lang="nav-home">首页</a>
             <a href="#about" class="nav-link" data-lang="nav-about">关于我们</a>
@@ -396,7 +397,7 @@
             <div class="contact-info">
                 <div class="contact-info-item">
                     <div class="contact-info-label" data-lang="contact-label1">公司地址</div>
-                    <div class="contact-info-value" data-lang="contact-value1">上海市黄浦区淮海中路333号瑞安广场1110室</div>
+                    <div class="contact-info-value" data-lang="contact-value1">上海市徐汇区淮海中路1000号</div>
                 </div>
                 <div class="contact-info-item">
                     <div class="contact-info-label" data-lang="contact-label2">联系电话</div>
@@ -424,22 +425,21 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="footer-copyright" data-lang="footer-copyright">© 2026 LeadersGene 励衿领导力咨询 保留所有权利</div>
-        <div class="footer-info" data-lang="footer-info">沪ICP备XXXXXXXX号 | 上海市黄浦区淮海中路333号瑞安广场1110室</div>
+        <div class="footer-info" data-lang="footer-info">沪ICP备XXXXXXXX号 | 上海市徐汇区淮海中路1000号</div>
     </footer>
 
     <script>
-        // 1. 视差滚动效果（清单要求）
+        // 1. 视差滚动效果
         const heroBg = document.querySelector('.hero-bg');
         window.addEventListener('scroll', () => {
             const scrollY = window.pageYOffset;
             heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
         });
 
-        // 2. 双语切换功能（清单要求：中英双语）
+        // 2. 双语切换功能
         const langSwitch = document.getElementById('langSwitch');
-        let currentLang = 'zh'; // 默认中文
+        let currentLang = 'zh';
 
-        // 双语内容配置
         const langContent = {
             zh: {
                 'nav-home': '首页',
@@ -468,7 +468,7 @@
                 'service4-desc': '通过团队诊断、目标对齐、沟通模式优化等方式，提升高管团队协作效率与决策质量，打造高绩效团队文化。',
                 'contact-title': '联系我们',
                 'contact-label1': '公司地址',
-                'contact-value1': '上海市黄浦区淮海中路333号瑞安广场1110室',
+                'contact-value1': '上海市徐汇区淮海中路1000号',
                 'contact-label2': '联系电话',
                 'contact-value2': '+86-21-5888 6666',
                 'contact-label3': '官方邮箱',
@@ -477,7 +477,7 @@
                 'contact-value4': 'LeadersGene励衿领导力',
                 'contact-form-text': '如需咨询服务或获取资料，请致电或发送邮件与我们联系，我们将在1个工作日内回复您。',
                 'footer-copyright': '© 2026 LeadersGene 励衿领导力咨询 保留所有权利',
-                'footer-info': '沪ICP备XXXXXXXX号 | 上海市黄浦区淮海中路333号瑞安广场1110室'
+                'footer-info': '沪ICP备XXXXXXXX号 | 上海市徐汇区淮海中路1000号'
             },
             en: {
                 'nav-home': 'Home',
@@ -506,7 +506,7 @@
                 'service4-desc': 'Through team diagnosis, goal alignment and communication mode optimization, we improve the collaboration efficiency and decision-making quality of executive teams, and build a high-performance team culture.',
                 'contact-title': 'Contact Us',
                 'contact-label1': 'Company Address',
-                'contact-value1': 'x',
+                'contact-value1': 'No. 1000 Huaihai Middle Road, Xuhui District, Shanghai',
                 'contact-label2': 'Phone',
                 'contact-value2': '+86-21-5888 6666',
                 'contact-label3': 'Email',
@@ -515,11 +515,10 @@
                 'contact-value4': 'LeadersGene',
                 'contact-form-text': 'For service consultation or information request, please call or send an email to contact us. We will reply to you within 1 working day.',
                 'footer-copyright': '© 2026 LeadersGene Consulting. All Rights Reserved.',
-                'footer-info': 'Shanghai ICP No. XXXXXXXX | Room 1110, Shui On Plaza, 333 Huai Hai Road, Shanghai, P.R.C.'
+                'footer-info': 'Shanghai ICP No. XXXXXXXX | No. 1000 Huaihai Middle Road, Xuhui District, Shanghai'
             }
         };
 
-        // 切换语言函数
         function updateLanguage(lang) {
             document.querySelectorAll('[data-lang]').forEach(el => {
                 const key = el.getAttribute('data-lang');
@@ -530,13 +529,11 @@
             document.documentElement.lang = lang;
         }
 
-        // 语言切换按钮事件
         langSwitch.addEventListener('click', () => {
             const targetLang = currentLang === 'zh' ? 'en' : 'zh';
             updateLanguage(targetLang);
         });
 
-        // 初始化语言
         updateLanguage(currentLang);
     </script>
 </body>
