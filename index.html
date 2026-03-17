@@ -200,29 +200,36 @@
             color: #444;
         }
 
-<!-- ====================== 新板块：客户案例 ====================== -->
-<section class="section" id="clients">
-  <h2 class="section-title" data-lang="clients-title">客户案例</h2>
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:center;">
-    
-    <div style="padding:20px; background:#f8f9fa; border-radius:8px;">
-      <h3 style="color:#013E75; margin-bottom:10px;">世界500强企业</h3>
-      <p>领导力评估与高管教练项目</p>
-    </div>
+        /* 客户案例板块（新增） */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .case-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #d4a742;
+        }
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .case-title {
+            font-size: 20px;
+            color: #013E75;
+            margin-bottom: 15px;
+        }
+        .case-desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #444;
+        }
 
-    <div style="padding:20px; background:#f8f9fa; border-radius:8px;">
-      <h3 style="color:#013E75; margin-bottom:10px;">医疗行业龙头</h3>
-      <p>高潜人才梯队建设项目</p>
-    </div>
-
-    <div style="padding:20px; background:#f8f9fa; border-radius:8px;">
-      <h3 style="color:#013E75; margin-bottom:10px;">科技互联网公司</h3>
-      <p>高管团队效能提升项目</p>
-    </div>
-
-  </div>
-</section>
-        
         /* 联系我们板块 */
         .contact-container {
             display: grid;
@@ -318,20 +325,21 @@
                 font-size: 26px;
                 margin-bottom: 25px;
             }
-            .services-grid {
+            .services-grid, .cases-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏：已新增 客户案例 -->
     <nav class="navbar">
         <img src="https://s41.ax1x.com/2026/03/17/peZcIGF.png" alt="LeadersGene Logo" class="logo">
         <div class="nav-menu">
             <a href="#hero" class="nav-link" data-lang="nav-home">首页</a>
             <a href="#about" class="nav-link" data-lang="nav-about">关于我们</a>
             <a href="#services" class="nav-link" data-lang="nav-services">服务方案</a>
+            <a href="#cases" class="nav-link" data-lang="nav-cases">客户案例</a>
             <a href="#contact" class="nav-link" data-lang="nav-contact">联系我们</a>
             <button class="lang-switch" id="langSwitch">EN</button>
         </div>
@@ -413,6 +421,29 @@
         </div>
     </section>
 
+    <!-- ====================== 新增：客户案例板块（放在服务方案下方） ====================== -->
+    <section class="section" id="cases">
+        <h2 class="section-title" data-lang="cases-title">客户案例</h2>
+        <div class="cases-grid">
+            <div class="case-card">
+                <h3 class="case-title" data-lang="case1-title">世界500强外资企业</h3>
+                <p class="case-desc" data-lang="case1-desc">全球高管领导力评估与发展项目，覆盖亚太区12个国家，助力管理层文化融合与效能提升。</p>
+            </div>
+            <div class="case-card">
+                <h3 class="case-title" data-lang="case2-title">医疗健康行业龙头</h3>
+                <p class="case-desc" data-lang="case2-desc">高潜人才梯队建设与高管教练服务，支撑企业3年战略扩张，核心管理层能力显著提升。</p>
+            </div>
+            <div class="case-card">
+                <h3 class="case-title" data-lang="case3-title">科技互联网集团</h3>
+                <p class="case-desc" data-lang="case3-desc">高管团队效能提升工作坊，解决跨部门协作痛点，团队决策效率提升40%以上。</p>
+            </div>
+            <div class="case-card">
+                <h3 class="case-title" data-lang="case4-title">消费零售龙头企业</h3>
+                <p class="case-desc" data-lang="case4-desc">中层管理者领导力发展项目，培养储备人才100+，支撑全国门店扩张战略。</p>
+            </div>
+        </div>
+    </section>
+
     <!-- 联系我们板块 -->
     <section class="section" id="contact">
         <h2 class="section-title" data-lang="contact-title">联系我们</h2>
@@ -468,6 +499,7 @@
                 'nav-home': '首页',
                 'nav-about': '关于我们',
                 'nav-services': '服务方案',
+                'nav-cases': '客户案例',
                 'nav-contact': '联系我们',
                 'hero-title': '全球领导力咨询 · 专注中国企业',
                 'hero-desc': 'LeadersGene 励衿领导力致力于为高管、团队与组织提供专业的领导力评估、发展与教练服务，用全球视野与本土实践，助力企业打造持续成长的核心力量。',
@@ -489,7 +521,15 @@
                 'service3-desc': '一对一专业高管教练服务，聚焦战略落地、团队管理、职业转型等核心议题，帮助管理者突破瓶颈，实现个人与组织绩效双重提升。',
                 'service4-title': '团队效能提升',
                 'service4-desc': '通过团队诊断、目标对齐、沟通模式优化等方式，提升高管团队协作效率与决策质量，打造高绩效团队文化。',
-                'clients-title': '客户案例',
+                'cases-title': '客户案例',
+                'case1-title': '世界500强外资企业',
+                'case1-desc': '全球高管领导力评估与发展项目，覆盖亚太区12个国家，助力管理层文化融合与效能提升。',
+                'case2-title': '医疗健康行业龙头',
+                'case2-desc': '高潜人才梯队建设与高管教练服务，支撑企业3年战略扩张，核心管理层能力显著提升。',
+                'case3-title': '科技互联网集团',
+                'case3-desc': '高管团队效能提升工作坊，解决跨部门协作痛点，团队决策效率提升40%以上。',
+                'case4-title': '消费零售龙头企业',
+                'case4-desc': '中层管理者领导力发展项目，培养储备人才100+，支撑全国门店扩张战略。',
                 'contact-title': '联系我们',
                 'contact-label1': '公司地址',
                 'contact-value1': '上海市徐汇区淮海中路1000号',
@@ -507,6 +547,7 @@
                 'nav-home': 'Home',
                 'nav-about': 'About Us',
                 'nav-services': 'Solutions',
+                'nav-cases': 'Cases',
                 'nav-contact': 'Contact',
                 'hero-title': 'Global Leadership Advisory · Focus on Chinese Enterprises',
                 'hero-desc': 'LeadersGene is committed to providing professional leadership assessment, development and coaching services for executives, teams and organizations. With global perspective and local practice, we help enterprises build core strength for sustainable growth.',
@@ -528,7 +569,15 @@
                 'service3-desc': 'One-on-one professional executive coaching services, focusing on core issues such as strategy implementation, team management and career transition, helping managers break through bottlenecks and achieve dual improvement of personal and organizational performance.',
                 'service4-title': 'Team Effectiveness Improvement',
                 'service4-desc': 'Through team diagnosis, goal alignment and communication mode optimization, we improve the collaboration efficiency and decision-making quality of executive teams, and build a high-performance team culture.',
-                'clients-title': 'Clients & Cases',
+                'cases-title': 'Cases',
+                'case1-title': 'Global Fortune 500 Company',
+                'case1-desc': 'Global executive leadership assessment and development program covering 12 Asia-Pacific countries, helping management improve cultural integration and effectiveness.',
+                'case2-title': 'Healthcare Industry Leader',
+                'case2-desc': 'High-potential talent pipeline and executive coaching, supporting 3-year strategic expansion and significantly improving core management capabilities.',
+                'case3-title': 'Technology Internet Group',
+                'case3-desc': 'Executive team effectiveness workshop, solving cross-departmental collaboration pain points and improving team decision-making efficiency by over 40%.',
+                'case4-title': 'Retail & Consumer Leader',
+                'case4-desc': 'Middle manager leadership development program, cultivating 100+ reserve talents to support national store expansion strategy.',
                 'contact-title': 'Contact Us',
                 'contact-label1': 'Company Address',
                 'contact-value1': 'No. 1000 Huaihai Middle Road, Xuhui District, Shanghai',
