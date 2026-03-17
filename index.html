@@ -154,6 +154,16 @@
             padding-left: 18px;
         }
 
+        /* 新增：关于我们板块外层容器 - 贯穿全屏的白色背景 */
+        .about-wrapper {
+            width: 100%;
+            background-color: #ffffff;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 45px 0; /* 上下内边距，使背景上缘到首页下缘中线、下缘到服务方案上缘中线 */
+        }
+
         /* 关于我们板块 */
         .about-content {
             display: grid;
@@ -368,6 +378,10 @@
                 font-size: 26px;
                 margin-bottom: 25px;
             }
+            /* 移动端适配about-wrapper */
+            .about-wrapper {
+                padding: 30px 0;
+            }
         }
     </style>
 </head>
@@ -397,31 +411,34 @@
         </div>
     </section>
 
-    <!-- 关于我们板块 -->
-    <section class="section" id="about">
-        <h2 class="section-title" data-lang="about-title">关于我们</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p data-lang="about-desc1">
-                    励衿领导力（LeadersGene）是国内领先的高管领导力咨询机构，核心团队均来自国际顶级人力资源与咨询公司，
-                    平均拥有15年以上跨国企业与本土龙头企业服务经验，深度理解中国企业的领导力发展痛点与需求。
-                </p>
-                <p data-lang="about-desc2">
-                    我们始终秉持“全球框架+本土洞察”的服务理念，为客户提供可落地、可衡量的领导力解决方案，
-                    已服务超过100家行业头部企业，覆盖医疗、消费、制造、科技等多个领域。
-                </p>
+    <!-- 新增about-wrapper容器包裹关于我们板块，实现全屏白色背景 -->
+    <div class="about-wrapper">
+        <!-- 关于我们板块 -->
+        <section class="section" id="about">
+            <h2 class="section-title" data-lang="about-title">关于我们</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-lang="about-desc1">
+                        励衿领导力（LeadersGene）是国内领先的高管领导力咨询机构，核心团队均来自国际顶级人力资源与咨询公司，
+                        平均拥有15年以上跨国企业与本土龙头企业服务经验，深度理解中国企业的领导力发展痛点与需求。
+                    </p>
+                    <p data-lang="about-desc2">
+                        我们始终秉持“全球框架+本土洞察”的服务理念，为客户提供可落地、可衡量的领导力解决方案，
+                        已服务超过100家行业头部企业，覆盖医疗、消费、制造、科技等多个领域。
+                    </p>
+                </div>
+                <!-- 核心优势移至关于我们文本下方 -->
+                <div class="about-advantages">
+                    <h3 class="section-title" style="font-size:22px; margin-bottom:20px;" data-lang="about-adv-title">核心优势</h3>
+                    <li data-lang="about-adv1">国际顶级测评工具与本土化适配</li>
+                    <li data-lang="about-adv2">100+跨国企业与本土龙头服务经验</li>
+                    <li data-lang="about-adv3">全流程项目管理与效果追踪</li>
+                    <li data-lang="about-adv4">一对一高管教练团队（平均12年+经验）</li>
+                    <li data-lang="about-adv5">定制化解决方案，拒绝标准化产品</li>
+                </div>
             </div>
-            <!-- 核心优势移至关于我们文本下方 -->
-            <div class="about-advantages">
-                <h3 class="section-title" style="font-size:22px; margin-bottom:20px;" data-lang="about-adv-title">核心优势</h3>
-                <li data-lang="about-adv1">国际顶级测评工具与本土化适配</li>
-                <li data-lang="about-adv2">100+跨国企业与本土龙头服务经验</li>
-                <li data-lang="about-adv3">全流程项目管理与效果追踪</li>
-                <li data-lang="about-adv4">一对一高管教练团队（平均12年+经验）</li>
-                <li data-lang="about-adv5">定制化解决方案，拒绝标准化产品</li>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- 服务方案板块 -->
     <section class="section" id="services">
