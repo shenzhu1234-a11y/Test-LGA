@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leader'sGene Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            color: #222;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* 导航栏 - 悬浮透明效果 */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background: rgba(10, 36, 99, 0.9);
+            color: #fff;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            transition: background 0.3s ease;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+
+        .lang-btn {
+            background: #D4AF37;
+            color: #0A2463;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: #e6c862;
+        }
+
+        /* 英雄区 - 视差背景 + 文字蒙版 */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* 背景图片容器 - 视差效果核心 */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%; /* 超出视口实现滚动位移 */
+            background: url(<a href="https://imgchr.com/i/peZ8XL9"><img src="https://s41.ax1x.com/2026/03/17/peZ8XL9.jpg" alt="peZ8XL9.jpg" border="0" /></a>) no-repeat center center;
+            background-size: cover;
+            z-index: -2;
+            transition: transform 0.3s ease-out; /* 跟随鼠标滚动的平滑过渡 */
+        }
+
+        /* 文字蒙版层 - 半透明遮罩 + 文字 */
+        .hero-overlay {
+            position: relative;
+            background: rgba(10, 36, 99, 0.7); /* 深蓝色半透明蒙版 */
+            padding: 60px 40px;
+            border-radius: 8px;
+            max-width: 800px;
+            text-align: center;
+            z-index: 1;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #f8f9fa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 通用区块样式 */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            background: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            color: #0A2463;
+            margin-bottom: 30px;
+            border-left: 4px solid #D4AF37;
+            padding-left: 16px;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 客户logo区域 */
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+        }
+
+        .client-logos img {
+            height: 50px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .client-logos img:hover {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background: #0A2463;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+
+            .hero-overlay {
+                padding: 40px 20px;
+                margin: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .client-logos {
+                gap: 20px;
+            }
+
+            .client-logos img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://s41.ax1x.com/2026/03/16/peZ9RRU.png" alt="Leader'sGene" class="logo">
+        <div class="nav-links">
+            <a href="index.html" lang-key="home">Home</a>
+            <a href="about.html" lang-key="about">About</a>
+            <a href="services.html" lang-key="services">Services</a>
+            <a href="tools.html" lang-key="tools">Tools</a>
+            <a href="contact.html" lang-key="contact">Contact</a>
+            <button class="lang-btn" id="langSwitch">中文</button>
+        </div>
+    </div>
+
+    <!-- 英雄区 - 视差背景 + 文字蒙版 -->
+    <section class="hero">
+        <div class="hero-bg"></div> <!-- 背景图片层 -->
+        <div class="hero-overlay"> <!-- 文字蒙版层 -->
+            <h1 lang-key="heroTitle">Global Leadership Advisory • Rooted in China</h1>
+            <p lang-key="heroDesc">
+                We help organizations build outstanding leaders, teams and talent pipelines 
+                with global frameworks and local Chinese insight.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 lang-key="aboutTitle">About Us</h2>
+        <p lang-key="aboutDesc">
+            Leader'sGene is a professional leadership consulting firm focused on executive development, 
+            team effectiveness and talent succession. We deliver measurable, sustainable results 
+            for multinationals and leading local enterprises.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2 lang-key="clientsTitle">Our Clients</h2>
+        <div class="client-logos">
+            <img src="https://assets.astrazeneca.com/etc/designs/az/public/images/az-logo.svg" alt="AstraZeneca">
+            <img src="https://www.haleon.com/content/dam/haleon/global/images/logos/haleon-logo.svg" alt="Haleon">
+            <img src="https://www.esteelaudercompanies.com/content/dam/eec/images/logos/EEC_Logo_Blue.svg" alt="Estee Lauder">
+            <img src="https://www.msd.com/content/dam/msd/global/images/logos/msd-logo-primary.svg" alt="MSD">
+            <img src="https://www.boehringer-ingelheim.com/content/dam/bih/global/images/logos/bih-logo.svg" alt="Boehringer Ingelheim">
+            <img src="https://www.ikea.com/global/assets/logo/ikea-logo.svg" alt="IKEA">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p lang-key="copyright">© 2026 Leader'sGene Consulting. All Rights Reserved.</p>
+        <p lang-key="contactInfo">Tel: +86-21-XXXXXXX | Email: contact@leadersgene.com | Address: Shanghai, China</p>
+    </footer>
+
+    <script>
+        // 多语言配置
+        const i18n = {
+            en: {
+                home: "Home", about: "About", services: "Services", tools: "Tools", contact: "Contact",
+                heroTitle: "Global Leadership Advisory • Rooted in China",
+                heroDesc: "We help organizations build outstanding leaders, teams and talent pipelines with global frameworks and local Chinese insight.",
+                aboutTitle: "About Us",
+                aboutDesc: "Leader'sGene is a professional leadership consulting firm focused on executive development, team effectiveness and talent succession. We deliver measurable, sustainable results for multinationals and leading local enterprises.",
+                clientsTitle: "Our Clients",
+                copyright: "© 2026 Leader'sGene Consulting. All Rights Reserved.",
+                contactInfo: "Tel: +86-21-XXXXXXX | Email: contact@leadersgene.com | Address: Shanghai, China"
+            },
+            zh: {
+                home: "首页", about: "关于我们", services: "服务", tools: "工具模型", contact: "联系我们",
+                heroTitle: "全球领导力咨询 · 立足中国",
+                heroDesc: "我们融合全球领先体系与中国本土洞察，助力企业打造卓越领导者、高绩效团队与人才梯队。",
+                aboutTitle: "关于我们",
+                aboutDesc: "励衿领导力是专注于高管发展、团队效能与人才梯队建设的专业咨询机构，为跨国企业与本土领先企业提供可落地、可衡量的服务。",
+                clientsTitle: "我们的客户",
+                copyright: "© 2026 励衿领导力咨询 保留所有权利。",
+                contactInfo: "电话：+86-21-XXXXXXX | 邮箱：contact@leadersgene.com | 地址：中国上海"
+            }
+        };
+
+        // 语言切换逻辑
+        let currentLang = localStorage.getItem('lang') || 'en';
+        const btn = document.getElementById("langSwitch");
+
+        function updateLang() {
+            document.querySelectorAll("[lang-key]").forEach(el => {
+                const key = el.getAttribute("lang-key");
+                el.textContent = i18n[currentLang][key];
+            });
+            btn.textContent = currentLang === "en" ? "中文" : "EN";
+            localStorage.setItem('lang', currentLang);
+            document.documentElement.lang = currentLang;
+        }
+
+        btn.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "zh" : "en";
+            updateLang();
+        });
+
+        // 视差滚动效果 - 背景图片随鼠标滚动位移
+        const heroBg = document.querySelector('.hero-bg');
+        window.addEventListener('scroll', () => {
+            // 获取滚动距离
+            const scrollY = window.pageYOffset;
+            // 背景图片位移（数值越小，位移越缓，可根据需求调整）
+            heroBg.style.transform = `translateY(${scrollY * 0.5}px)`;
+        });
+
+        // 初始化
+        updateLang();
+    </script>
+</body>
+</html>
