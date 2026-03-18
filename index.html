@@ -203,9 +203,10 @@
             color: #333;
         }
         .consultants-link {
-            text-align: right;
+            text-align: center;
             font-size: 17px;
             color: #000000;
+            font-weight: bold;
             font-style: italic;
             line-height: 2.0;
             margin-top: 20px;
@@ -368,7 +369,7 @@
         /* 修改：联系我们标题改为白色 */
         .contact-info-label {
             font-size: 18px;
-            color: #ffffff;
+            color: #013E75;
             font-weight: 600;
             margin-bottom: 8px;
         }
@@ -747,7 +748,7 @@
     <section class="section" id="cases">
         <h2 class="section-title" data-lang="cases-title">客户案例</h2>
         <div class="cases-grid">
-            <div class="case-card">
+            <div class="case-card" onclick="openCaseDetail()">
                 <h3 class="case-title" data-lang="case1-title">世界500强外资企业</h3>
                 <p class="case-desc" data-lang="case1-desc">全球高管领导力评估与发展项目，覆盖亚太区12个国家，助力管理层文化融合与效能提升。</p>
             </div>
@@ -792,7 +793,7 @@
 
     <!-- 联系我们板块 -->
     <section class="section" id="contact">
-        <h2 class="section-title" data-lang="contact-title">联系我们</h2>
+        <h2 class="section-title" data-lang="contact-title" style="color:#fff;">联系我们</h2>
         <div class="contact-container">
             <div class="contact-info">
                 <div class="contact-info-item">
@@ -864,6 +865,30 @@
             </ul>
         </div>
         <button class="back-btn" onclick="closeDetail()">返回</button>
+    </div>
+
+    <!-- -------- 新增：客户案例详情弹窗 -------- -->
+    <div class="detail-modal" id="caseDetailModal">
+        <h1>选拔领导者-为公司内部敏捷创新项目</h1>
+        <div style="font-size: 20px; color: #013E75; margin-bottom: 30px; font-weight: 600;">世界500强外资企业敏捷性素质建模项目</div>
+        <div class="detail-content">
+            <span class="bold-title">项目背景</span>
+            <p>作为全球健康卫生领域的领先者，A企业一直致力于优化内部人力资源管理。为了支持企业战略的实现，A企业希望为即将成立的一个内部敏捷创新小组挑选核心成员。</p>
+            <p>在此背景下，A企业邀请励衿为目标职业体系建立素质模型，旨在通过科学、敏捷的方式构建出一套符合新战略需求的素质模型，并确保该模型能够得到公司内部的广泛认可。</p>
+
+            <span class="bold-title">解决方案</span>
+            <p>基于对客户需求的理解，励衿推荐使用VERA8线上建模的形式，以简洁、高效的形式构建模型，并在后续过程中邀请客户参与、反馈，在过程中持续优化与调整。</p>
+            <p>具体做法大致如下（以某单一职位系列为例）：</p>
+            <p>邀请该职系的相关核心高层在线上对企业所需该职系下的理想行为进行评选。</p>
+            <p>励衿整合所有高层人员的迫选结果，输出共识的重要素质项，以及有争议、待讨论的素质项。</p>
+            <p>在后续焦点小组中，励衿顾问引导大家对当前业务、组织、个人面临的挑战进行思考，最终统一观点。</p>
+
+            <span class="bold-title">价值体现</span>
+            <p>励衿采用VERA8线上建模结合焦点小组的方式，在短时间内完成了复杂的素质模型构建，减少了项目周期和资源投入。</p>
+            <p>励衿邀请客户核心高层参与建模过程，不仅提高了建模效率，还通过充分讨论和优化达成内部共识，确保了模型的科学性和实用性。</p>
+            <p>建模完成后，励衿为A企业提供了一系列实用工具，不仅支持内外部候选人评估选拔，还为后续发展提供了指导，实现了人才管理的全流程覆盖，为企业的创新试点项目提出了快捷、适合的人才供给方案。</p>
+        </div>
+        <button class="back-btn" onclick="closeCaseDetail()">返回</button>
     </div>
 
     <!-- -------- 新增：顾问团队全屏弹窗 -------- -->
@@ -1158,6 +1183,15 @@
         function closeDetail() {
             document.getElementById('detailModal').style.display = 'none';
             location.href = '#services';
+        }
+
+        // ============== 客户案例弹窗 ==============
+        function openCaseDetail() {
+            document.getElementById('caseDetailModal').style.display = 'block';
+        }
+        function closeCaseDetail() {
+            document.getElementById('caseDetailModal').style.display = 'none';
+            location.href = '#cases';
         }
 
         // ============== 顾问团队弹窗 ==============
