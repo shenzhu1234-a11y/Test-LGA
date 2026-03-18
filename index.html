@@ -209,6 +209,7 @@
             font-style: italic;
             line-height: 2.0;
             margin-top: 20px;
+            cursor: pointer;
         }
 
         .about-advantages {
@@ -364,9 +365,10 @@
             margin-bottom: 25px;
         }
 
+        /* 修改：联系我们标题改为白色 */
         .contact-info-label {
             font-size: 18px;
-            color: #013E75;
+            color: #ffffff;
             font-weight: 600;
             margin-bottom: 8px;
         }
@@ -536,6 +538,99 @@
             font-size: 17px;
             cursor: pointer;
         }
+
+        /* -------- 新增：顾问团队全屏弹窗 -------- */
+        .consultants-modal {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - 60px);
+            background: #fff;
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 40px 5%;
+        }
+        .consultants-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .consultants-grid-row2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 30px auto 0;
+        }
+        .consultant-item {
+            text-align: center;
+            cursor: pointer;
+        }
+        .consultant-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        .consultant-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #013E75;
+            margin-bottom: 4px;
+        }
+        .consultant-title {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* -------- 新增：顾问详情全屏弹窗 -------- */
+        .consultant-detail-modal {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - 60px);
+            background: #fff;
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 40px 5%;
+        }
+        .consultant-detail-container {
+            display: flex;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+        .consultant-detail-left {
+            width: 300px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .consultant-detail-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .consultant-detail-tags {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .consultant-detail-right {
+            flex: 1;
+            line-height: 2;
+            font-size: 17px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -593,7 +688,7 @@
                         <img src="https://s41.ax1x.com/2026/03/17/peZbTDf.png" alt="联合创始人" class="founder-img">
                         <div class="founder-desc" data-lang="founder-desc2">创始人简介xxxxxxxxxxxxxxxxxxx</div>
                     </div>
-                    <div class="consultants-link" data-lang="consultants">认识我们的顾问</div>
+                    <div class="consultants-link" data-lang="consultants" onclick="openConsultants()">认识我们的顾问</div>
                 </div>
 
                 <!-- 核心优势移至关于我们文本下方 -->
@@ -769,6 +864,83 @@
             </ul>
         </div>
         <button class="back-btn" onclick="closeDetail()">返回</button>
+    </div>
+
+    <!-- -------- 新增：顾问团队全屏弹窗 -------- -->
+    <div class="consultants-modal" id="consultantsModal">
+        <button class="back-btn" onclick="closeConsultants()" style="margin-bottom:30px;">返回</button>
+        <div class="consultants-grid">
+            <div class="consultant-item" onclick="openConsultantDetail(1)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+            <div class="consultant-item" onclick="openConsultantDetail(2)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+            <div class="consultant-item" onclick="openConsultantDetail(3)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">安宁Ning</div>
+                <div class="consultant-title">合伙人Partner</div>
+            </div>
+            <div class="consultant-item" onclick="openConsultantDetail(4)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+            <div class="consultant-item" onclick="openConsultantDetail(5)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+        </div>
+        <div class="consultants-grid-row2">
+            <div class="consultant-item" onclick="openConsultantDetail(6)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+            <div class="consultant-item" onclick="openConsultantDetail(7)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+            <div class="consultant-item" onclick="openConsultantDetail(8)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+            <div class="consultant-item" onclick="openConsultantDetail(9)">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="顾问" class="consultant-img">
+                <div class="consultant-name">姓名EN</div>
+                <div class="consultant-title">励衿头衔</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------- 新增：顾问详情全屏弹窗 -------- -->
+    <div class="consultant-detail-modal" id="consultantDetailModal">
+        <button class="back-btn" onclick="closeConsultantDetail()" style="margin-bottom:30px;">返回</button>
+        <div class="consultant-detail-container">
+            <div class="consultant-detail-left">
+                <img src="https://s41.ax1x.com/2026/03/18/peeGXxU.jpg" alt="安宁" class="consultant-detail-img" id="consultantDetailImg">
+                <div class="consultant-detail-tags" id="consultantDetailTags">
+                    励衿领导力咨询 合伙人<br>
+                    高管继任、团队教练<br>
+                    文化转型、故事教练<br>
+                    中国篮协国家二级裁判
+                </div>
+            </div>
+            <div class="consultant-detail-right" id="consultantDetailContent">
+                安宁先生在企业、咨询机构、非营利组织拥有超过20年的业务管理经验。他认为，领导力是与生俱来的，每个人都有同样的潜质，在一定的条件下可以被唤醒。他致力于在亚洲和中国培养具有全球影响力的领导人。<br><br>
+                在加入励衿之前，他领导埃森哲大中华区领导力与文化咨询业务，亦曾担任YSC 咨询大中华区总经理。他在通过指导变革、领导者继任、高管教练、高管团队整合、领导者加速数字化业务转型等方面拥有丰富的经验。在此期间，他开发、带领实施了多家世界五百强企业的领导力策略咨询项目，业务范围包括关键岗位任用建议、高管团队整合、高管教练、CEO继任计划、领导力潜能评估、跨文化/DEI领导力等。<br><br>
+                安宁先生曾在宜家IKEA和育碧Ubisoft中国负责人才组织和领导力发展工作。随后，他加入亚马逊Amazon，领导跨境电商业务的市场教育和人才开发项目。他早期供职于美世咨询公司，曾是一名经验丰富的全面薪酬顾问。<br><br>
+                除了在企业的经历，他也有过丰富的创业经历。他曾联合创办了一家零售公司。作为首席体验官，他为线上和线下客户制定实施了数字化以及现场体验策略。他被故事的力量所吸引，于2012年联合创办了一家故事演讲非营利机构。他与中国的顶尖大学、MBA学校和政府部门合作，提供故事演讲培训、教练和舞台呈现服务。<br><br>
+                安宁获得工科学士，及上海交通大学MBA学位，主攻方向是领导者行为和效能。他拥有霍根和DISC等心理工具的认证。他也是国际教练联合会认证的教练。
+            </div>
+        </div>
     </div>
 
     <script>
@@ -979,13 +1151,31 @@
         window.addEventListener('scroll', switchBackground);
         switchBackground();
 
-        // ============== 新增：弹窗打开/关闭 ==============
+        // ============== 弹窗打开/关闭 ==============
         function openDetail() {
             document.getElementById('detailModal').style.display = 'block';
         }
         function closeDetail() {
             document.getElementById('detailModal').style.display = 'none';
             location.href = '#services';
+        }
+
+        // ============== 顾问团队弹窗 ==============
+        function openConsultants() {
+            document.getElementById('consultantsModal').style.display = 'block';
+        }
+        function closeConsultants() {
+            document.getElementById('consultantsModal').style.display = 'none';
+        }
+
+        // ============== 顾问详情弹窗 ==============
+        function openConsultantDetail(id) {
+            document.getElementById('consultantsModal').style.display = 'none';
+            document.getElementById('consultantDetailModal').style.display = 'block';
+        }
+        function closeConsultantDetail() {
+            document.getElementById('consultantDetailModal').style.display = 'none';
+            document.getElementById('consultantsModal').style.display = 'block';
         }
     </script>
 </body>
