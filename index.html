@@ -205,12 +205,25 @@
         .consultants-link {
             text-align: center;
             font-size: 17px;
-            color: #000000;
+            color: #fff;
             font-weight: bold;
-            font-style: italic;
-            line-height: 2.0;
+            font-style: normal;
+            line-height: 1.8;
             margin-top: 20px;
             cursor: pointer;
+            background-color: #013E75;
+            border: 2px solid #013E75;
+            padding: 10px 24px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .consultants-link:hover {
+            background-color: #d4a742;
+            color: #013E75;
+            border-color: #d4a742;
         }
 
         .about-advantages {
@@ -689,7 +702,9 @@
                         <img src="https://s41.ax1x.com/2026/03/17/peZbTDf.png" alt="联合创始人" class="founder-img">
                         <div class="founder-desc" data-lang="founder-desc2">创始人简介xxxxxxxxxxxxxxxxxxx</div>
                     </div>
-                    <div class="consultants-link" data-lang="consultants" onclick="openConsultants()">认识我们的顾问</div>
+                    <div style="text-align:center;">
+                        <div class="consultants-link" data-lang="consultants" onclick="openConsultants()">认识我们的顾问</div>
+                    </div>
                 </div>
 
                 <!-- 核心优势移至关于我们文本下方 -->
@@ -1065,7 +1080,7 @@
                 'founder-title': 'Founder',
                 'founder-desc1': 'The founder who........................................',
                 'founder-desc2': 'The founder who........................................',
-                'consultants': 'Get to know our consultants',
+                'consultants': 'Meet our consultants',
                 'about-adv-title': 'Core Advantages',
                 'about-adv1': 'International top assessment tools and localized adaptation',
                 'about-adv2': 'Service experience for 100+ multinational and local leading enterprises',
