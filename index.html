@@ -302,6 +302,16 @@
             color: #444;
         }
 
+        /* 工具/产品板块 外层全屏白色背景 */
+        .tools-wrapper {
+            width: 100%;
+            background-color: #ffffff;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 45px 0;
+        }
+
         /* 工具/产品板块 样式 */
         .tools-content {
             background: #fff;
@@ -457,6 +467,10 @@
             }
             .founder-img {
                 width: 150px;
+            }
+            /* 移动端适配tools-wrapper */
+            .tools-wrapper {
+                padding: 30px 0;
             }
         }
 
@@ -619,7 +633,7 @@
             <div class="service-card">
                 <h3 class="service-title" data-lang="service3-title">高管教练</h3>
                 <p class="service-desc" data-lang="service3-desc">
-                    一对一专业高管教练服务，聚焦战略落地、团队管理、职业转型等核心议题，
+                   一对一专业高管教练服务，聚焦战略落地、团队管理、职业转型等核心议题，
                     帮助管理者突破瓶颈，实现个人与组织绩效双重提升。
                 </p>
             </div>
@@ -657,26 +671,29 @@
         </div>
     </section>
 
-    <!-- 新增：工具/产品板块 -->
-    <section class="section" id="tools">
-        <h2 class="section-title" data-lang="tools-title">工具/产品</h2>
-        <div class="tools-content" data-lang="tools-content">
-            <h3>1. 线上测评</h3>
-            <p>领导力测评是励衿领导力咨询的主要业务之一。励衿的专家们通过多年的测评实践，为企业提供定制化的测评方案。包括高接触式的测评方案，例如模拟式测评中心、专家委员会面试设计和行为事件访谈等；也包括线上的各种测评和报告解读，例如360度领导力评估，自评式领导力评估，人格量表测评等等。常用测评工具有：</p>
-            <ul class="tools-list">
-                <li>VERA8™领导力素质测评</li>
-                <li>VERA360™领导力素质360°测评</li>
-                <li>TALENTx7®识别高潜人才测评</li>
-                <li>LTE™：领导团队有效性测评</li>
-                <li>Decision Dynamics ：领导力决策风格测评</li>
-            </ul>
+    <!-- 新增：工具/产品板块外层全屏白色背景 -->
+    <div class="tools-wrapper">
+        <!-- 工具/产品板块 -->
+        <section class="section" id="tools">
+            <h2 class="section-title" data-lang="tools-title">工具/产品</h2>
+            <div class="tools-content" data-lang="tools-content">
+                <h3>1. 线上测评</h3>
+                <p>领导力测评是励衿领导力咨询的主要业务之一。励衿的专家们通过多年的测评实践，为企业提供定制化的测评方案。包括高接触式的测评方案，例如模拟式测评中心、专家委员会面试设计和行为事件访谈等；也包括线上的各种测评和报告解读，例如360度领导力评估，自评式领导力评估，人格量表测评等等。常用测评工具有：</p>
+                <ul class="tools-list">
+                    <li>VERA8™领导力素质测评</li>
+                    <li>VERA360™领导力素质360°测评</li>
+                    <li>TALENTx7®识别高潜人才测评</li>
+                    <li>LTE™：领导团队有效性测评</li>
+                    <li>Decision Dynamics ：领导力决策风格测评</li>
+                </ul>
 
-            <h3>2. 培训公开课</h3>
-            <p>领导力发展不同于一般管理培训的地方在于其对于个性化的要求。因此领导力培训最大的挑战之一是兼顾标准化与客制化。</p>
-            <p>励衿顾问核心团队是中国最资深的人力资源咨询顾问，部分并拥有战略咨询和企业组织发展管理实战经验。因此善于根据客户的实际情况量身定制领导力培训课程。</p>
-            <p>基于励衿顾问《领导力基因》一书所展示的领导力体系，我们的领导力培训课程围绕着：价值共鸣、领导他人、领导业务以及领导力潜质四方面由大量可选模块组成。插入课程清单。。。。。。。。。。。。。。。。。。。</p>
-        </div>
-    </section>
+                <h3>2. 培训公开课</h3>
+                <p>领导力发展不同于一般管理培训的地方在于其对于个性化的要求。因此领导力培训最大的挑战之一是兼顾标准化与客制化。</p>
+                <p>励衿顾问核心团队是中国最资深的人力资源咨询顾问，部分并拥有战略咨询和企业组织发展管理实战经验。因此善于根据客户的实际情况量身定制领导力培训课程。</p>
+                <p>基于励衿顾问《领导力基因》一书所展示的领导力体系，我们的领导力培训课程围绕着：价值共鸣、领导他人、领导业务以及领导力潜质四方面由大量可选模块组成。插入课程清单。。。。。。。。。。。。。。。。。。。</p>
+            </div>
+        </section>
+    </div>
 
     <!-- 联系我们板块 -->
     <section class="section" id="contact">
@@ -924,21 +941,36 @@
 
         updateLanguage(currentLang);
 
-        // ============== 新增：滚动背景图自动切换 ==============
+        // ============== 优化：三段式背景图切换逻辑 ==============
         let currentBg = 1;
         const bg1 = "url('https://s41.ax1x.com/2026/03/17/peZ8XL9.jpg')";
         const bg2 = "url('https://s41.ax1x.com/2026/03/17/peZ7ZxP.jpg')";
+        const bg3 = "url('https://s41.ax1x.com/2026/03/18/pee1t4f.jpg')";
         const aboutWrapper = document.querySelector('.about-wrapper');
+        const toolsWrapper = document.querySelector('.tools-wrapper');
 
         function switchBackground() {
-            const rect = aboutWrapper.getBoundingClientRect();
+            const rectAbout = aboutWrapper.getBoundingClientRect();
+            const rectTools = toolsWrapper.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             
-            if (rect.bottom <= windowHeight && currentBg === 1) {
+            // 切换到第二张图
+            if (rectAbout.bottom <= windowHeight && currentBg === 1) {
                 document.body.style.backgroundImage = bg2;
                 currentBg = 2;
             }
-            if (rect.top >= windowHeight && currentBg === 2) {
+            // 切换到第三张图
+            if (rectTools.bottom <= windowHeight && currentBg === 2) {
+                document.body.style.backgroundImage = bg3;
+                currentBg = 3;
+            }
+            // 切回第二张图
+            if (rectTools.top >= windowHeight && currentBg === 3) {
+                document.body.style.backgroundImage = bg2;
+                currentBg = 2;
+            }
+            // 切回第一张图
+            if (rectAbout.top >= windowHeight && currentBg === 2) {
                 document.body.style.backgroundImage = bg1;
                 currentBg = 1;
             }
