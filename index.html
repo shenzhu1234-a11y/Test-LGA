@@ -249,6 +249,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
 
         .service-card:hover {
@@ -423,6 +424,69 @@
                 width: 150px;
             }
         }
+
+        /* -------- 新增：领导力测评弹窗样式 -------- */
+        .detail-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 60px 5%;
+        }
+        .detail-modal h1 {
+            font-size: 32px;
+            color: #013E75;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .detail-content {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            line-height: 2;
+            font-size: 17px;
+            color: #333;
+        }
+        .detail-content p {
+            margin-bottom: 18px;
+        }
+        .detail-content .bold-title {
+            font-weight: bold;
+            display: block;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        .detail-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 12px 0;
+        }
+        .detail-content li {
+            padding-left: 22px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .detail-content li::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+        }
+        .back-btn {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            background: #013E75;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -499,9 +563,9 @@
     <section class="section" id="services">
         <h2 class="section-title" data-lang="services-title">服务方案</h2>
         <div class="services-grid">
-            <!-- 服务1：领导力评估（第一行第一列） -->
-            <div class="service-card">
-                <h3 class="service-title" data-lang="service1-title">领导力评估</h3>
+            <!-- 服务1：领导力测评（已改名 + 点击弹窗） -->
+            <div class="service-card" onclick="openDetail()">
+                <h3 class="service-title" data-lang="service1-title">领导力测评</h3>
                 <p class="service-desc" data-lang="service1-desc">
                     结合国际标准评估中心（AC）与本土化工具，多维度识别领导者优势与发展机会，
                     输出专业评估报告，为人才选拔、晋升与发展提供数据支撑。
@@ -596,6 +660,43 @@
         <div class="footer-info" data-lang="footer-info">沪ICP备XXXXXXXX号 | 上海市徐汇区淮海中路1000号</div>
     </footer>
 
+    <!-- -------- 新增：领导力测评详情弹窗 -------- -->
+    <div class="detail-modal" id="detailModal">
+        <h1>领导力测评</h1>
+        <div class="detail-content">
+            <p>励衿领导力测评目的在于帮助识别领导者的优势和待发展的领域。励衿提供全面的人才测评服务，包括领导力素质模型、人才测评/发展中心、在线测评。</p>
+
+            <span class="bold-title">领导力素质建模及运用</span>
+            <p>领导力素质建模是一个定义组织有效领导力行为所需关键技能的过程。它涉及到对知识、技能、能力和其他行为特征的识别，这些都是领导者成功履行其职责所必需的要素。通过咨询类项目或工作坊等形式，励衿领导力帮助企业建立领导力素质模型。同时，我们帮助客户将素质模型落地并应用到人才管理的实际工作中去。</p>
+            <p>我们主要提供两种建模方案，（1）一种是传统的建模方式，（2）另一种是基于励衿VERA8TM工具的敏捷建模方式。</p>
+            <ul>
+                <li>传统方式通常需要几个步骤来完成，包括资料研读、职位分析、行为访谈、统计分析、建构模型和实施校准等，该方法通常适用于对定制化、精确性和全面性要求较高的建模项目。</li>
+                <li>VERA8TM 敏捷建模由励衿领导力提出并设计，它充分体现了敏捷、高效、专业的领导力素质建模特点，此外，线上建模结果还可以由顾问做出适度的调整或优化，以满足企业客户基本的定制化需求。</li>
+            </ul>
+
+            <span class="bold-title">测评中心/发展中心</span>
+            <p>励衿领导力的人才测评中心，主要针对企业中高管的评测，及帮助组织甄别高潜力人才。我们通过一系列练习和情景模拟，对目标领导力素质和技能进行评估。励衿领导力经验丰富的顾问们还将为候选人提供全面反馈，为企业人力资源、业务部门经理、高管团队提供他们所需的信息以助力他们做出明智的决策。</p>
+            <p>人才发展中心通过设计一系列练习和活动，高度模拟参与者真实的工作场景和挑战，对其素质和技能要求进行全面评估。我们的反馈侧重于个人发展，我们帮助个人找到自身能力的优势项和待发展项，为他们发展其能力所需的工具/资源进行建言献策。人才发展中心活动设计通常包括角色扮演、案例研究、小组讨论和个人演讲等等。</p>
+
+            <span class="bold-title">在线测评</span>
+            <p>励衿领导力在线测评解决方案，用于评估领导力素质和技能，并为企业提供关于其员工能力优势和发展领域的全面反馈。通过各类型测评产品，我们对领导力素质和技能进行全方位的评估，例如，领导力素质行为、学习敏锐度、决策风格、情绪智力等。</p>
+            <p>我们的测评工作可以完全在线实施与交付，这使得我们能够为企业里繁忙的职场专业人士提供便捷高效的测评服务。被评估者可以在世界上的任何地方以自己的节奏方式完成测评流程，且能够及时收到顾问给予他们的反馈。</p>
+            <p>我们所使用的在线人才测评方法和工具包括：</p>
+            <ul>
+                <li>TALENTx7® 学习敏锐度</li>
+                <li>VERA8TM 领导力能力素质测评</li>
+                <li>Digital5TM 数字化领导力能力素质测评</li>
+                <li>客制化领导力测评中心（在线）</li>
+                <li>领导力团队有效性测评</li>
+                <li>领导力素质360度调研</li>
+                <li>Decision Dynamics决策风格测评</li>
+                <li>基于胜任力的面谈，行为事件面谈</li>
+                <li>诸如Hogan, MBTI和CPI等心理测验工具</li>
+            </ul>
+        </div>
+        <button class="back-btn" onclick="closeDetail()">返回</button>
+    </div>
+
     <script>
         // 1. 视差滚动效果
         const heroBg = document.querySelector('.hero-bg');
@@ -631,7 +732,7 @@
                 'about-adv4': '一对一高管教练团队（平均12年+经验）',
                 'about-adv5': '定制化解决方案，拒绝标准化产品',
                 'services-title': '服务方案',
-                'service1-title': '领导力评估',
+                'service1-title': '领导力测评',
                 'service1-desc': '结合国际标准评估中心（AC）与本土化工具，多维度识别领导者优势与发展机会，输出专业评估报告，为人才选拔、晋升与发展提供数据支撑。',
                 'service2-title': '领导力发展项目',
                 'service2-desc': '基于70-20-10学习原则，定制高管、中层与后备梯队发展项目，通过课程、行动学习、辅导结合，实现领导力能力落地转化。',
@@ -754,6 +855,15 @@
 
         window.addEventListener('scroll', switchBackground);
         switchBackground();
+
+        // ============== 新增：弹窗打开/关闭 ==============
+        function openDetail() {
+            document.getElementById('detailModal').style.display = 'block';
+        }
+        function closeDetail() {
+            document.getElementById('detailModal').style.display = 'none';
+            location.href = '#services';
+        }
     </script>
 </body>
 </html>
