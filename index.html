@@ -26,7 +26,7 @@
             transition: background-image 0.8s ease; /* 平滑切换 */
         }
 
-        /* 背景白色蒙版（40%透明度） */
+        /* 背景白色蒙版（40%透明度）—— 覆盖所有三张背景图 */
         body::before {
             content: "";
             position: fixed;
@@ -37,6 +37,7 @@
             background-color: #ffffff;
             opacity: 0.40;
             z-index: -1; /* 蒙版置于内容下方 */
+            pointer-events: none;
         }
 
         /* 导航栏（固定顶部+双语切换） */
